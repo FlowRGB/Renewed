@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pixel Pet Tamagotchi</title>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+  <!-- SELECT SCREEN -->
+  <div id="selectScreen" class="device-shell">
+    <div class="screw" style="top: 12px; left: 12px;"></div>
+    <div class="screw" style="top: 12px; right: 12px;"></div>
+    <div class="screw" style="bottom: 12px; left: 12px;"></div>
+    <div class="screw" style="bottom: 12px; right: 12px;"></div>
+
+    <div class="screen">
+      <div class="pet-select-screen" style="padding: 16px;">
+        <div class="screen-title">✦ Choose Your Pet ✦</div>
+        
+        <div class="pet-selector">
+          <button class="pet-btn" data-pet="dog" onclick="selectPet('dog')" title="Dog">🐕</button>
+          <button class="pet-btn" data-pet="cat" onclick="selectPet('cat')" title="Cat">🐱</button>
+          <button class="pet-btn" data-pet="bunny" onclick="selectPet('bunny')" title="Bunny">🐰</button>
+          <button class="pet-btn" data-pet="slime" onclick="selectPet('slime')" title="Slime">🟣</button>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Name Your Pet:</label>
+          <input type="text" id="petNameInput" class="name-input" placeholder="Enter name..." maxlength="12" />
+        </div>
+
+        <button class="pixel-btn" id="startBtn" onclick="startGame()" disabled style="opacity: 0.5;">★ Hatch! ★</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="gameScreen" class="hidden">
+    <div class="title">My Tamagotchi</div>
+    
+    <div class="device-shell">
+      <div class="screw" style="top: 12px; left: 12px;"></div>
+      <div class="screw" style="top: 12px; right: 12px;"></div>
+      <div class="screw" style="bottom: 12px; left: 12px;"></div>
+      <div class="screw" style="bottom: 12px; right: 12px;"></div>
+
+      <div class="screen">
+        <div class="screen-header">
+          <span id="petName">Pet</span>
+          <span class="emotion-text" id="emotionText">😊 Happy</span>
+        </div>
+
+        <div class="pet-area" id="petArea">
+          <div id="bgLayer"></div>
+          <div class="pet-sprite" id="petSprite"></div>
+          <div class="toast" id="toast"></div>
+        </div>
+
+        <div class="screen-footer">
+          <div class="stat-row">
+            <span class="stat-label">🍖 Food</span>
+            <div class="stat-bar"><div class="stat-fill" id="hungerBar" style="width: 80%; background: #f472b6;"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">⚡ Fun</span>
+            <div class="stat-bar"><div class="stat-fill" id="funBar" style="width: 80%; background: #a78bfa;"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">💤 Rest</span>
+            <div class="stat-bar"><div class="stat-fill" id="sleepBar" style="width: 80%; background: #60a5fa;"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">✨ Clean</span>
+            <div class="stat-bar"><div class="stat-fill" id="cleanBar" style="width: 80%; background: #34d399;"></div></div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">💜 Love</span>
+            <div class="stat-bar"><div class="stat-fill" id="loveBar" style="width: 80%; background: #e879f9;"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button class="pixel-btn" onclick="doAction('eat')">🍖 Eat</button>
+        <button class="pixel-btn" onclick="doAction('play')">🎾 Play</button>
+        <button class="pixel-btn" onclick="doAction('sleep')">💤 Sleep</button>
+        <button class="pixel-btn" onclick="doAction('bath')">🛁 Bath</button>
+        <button class="pixel-btn" onclick="doAction('pet')">💜 Pet</button>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="pixel-btn back-btn" onclick="goBack()">↩ New Pet</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
